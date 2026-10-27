@@ -1,6 +1,7 @@
 # Dependencies and build output (each app also has its own .gitignore)
 **/node_modules/
 **/dist/
+**/*.tsbuildinfo
 **/.netlify/
 
 # Secrets — never commit

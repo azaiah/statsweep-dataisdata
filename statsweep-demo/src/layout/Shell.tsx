@@ -65,7 +65,7 @@ export function Shell({ children, onSignOut }: { children: ReactNode; onSignOut:
         <div className="border-t border-white/10 p-4 text-sm">
           <button onClick={reset} className="flex min-h-[40px] w-full items-center gap-2 rounded-lg px-2 text-white/70 hover:bg-white/5 hover:text-white"><RotateCcw size={16} /> Reset demo</button>
           <button onClick={onSignOut} className="flex min-h-[40px] w-full items-center gap-2 rounded-lg px-2 text-white/70 hover:bg-white/5 hover:text-white"><LogOut size={16} /> Sign out</button>
-          <a href="https://statsweep.com" className="mt-1 block px-2 text-white/50 hover:text-white">Back to statsweep.com</a>
+          <a href="https://statsweep.netlify.app" className="mt-1 block px-2 text-white/50 hover:text-white">Back to the StatSweep site</a>
         </div>
       </aside>
       <div className="min-w-0">

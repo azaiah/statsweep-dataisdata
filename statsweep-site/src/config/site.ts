@@ -8,8 +8,8 @@ export const site = {
   presentedBy: 'DataIsData',
   presentedByUrl: 'https://dataisdata.com', // TODO: confirm DataIsData's public URL
   tagline: 'Your next route contract is already posted.',
-  domain: 'https://statsweep.com', // statsweep.com was unregistered on 2026-10-27: buy it before launch
-  demoUrl: 'https://demo.statsweep.com', // TODO: point at the Netlify URL of statsweep-demo until the subdomain is connected
+  domain: 'https://statsweep.netlify.app', // TODO: switch to https://statsweep.com once the domain is bought and connected
+  demoUrl: 'https://statsweep-demo.netlify.app', // TODO: switch to https://demo.statsweep.com once the subdomain is connected
   email: 'hello@statsweep.com', // TODO: confirm (set up forwarding to azaiah@dataisdata.com)
   phone: '', // TODO: add a sales line; the header hides the phone link while this is empty
   phoneHref: '',

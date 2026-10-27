@@ -42,7 +42,7 @@ const RESULTS = {
 const resultsFor = (ch) => ch === 'call' ? RESULTS.call : (ch === 'inperson' || ch === 'inbound') ? [...RESULTS.meet, ...RESULTS.msg.filter((r) => r.key.startsWith('replied'))] : RESULTS.msg
 const QUICK_CALL = RESULTS.call
 const CHANNEL_LABEL = Object.fromEntries(CHANNELS)
-const RELAY = 'https://statsweep.com/go.html'
+const RELAY = 'https://statsweep.netlify.app/go.html'
 const STORE_ME = 'statsweep-cc-me'
 
 /* ------------------------------------------------------------------ helpers */
@@ -79,7 +79,7 @@ function callWindow(tz, now = new Date()) {
 const callable = (l, now) => l.phone && !CLOSED.has(l.stage) && callWindow(l.tz, now).status !== 'closed'
 function fill(text, me, settings) {
   const m = settings?.members?.[me] || {}
-  return (text || '').replaceAll('{{me}}', TEAM[me]?.name || 'Azaiah').replaceAll('{{myphone}}', m.phone || '[your number]').replaceAll('{{demo}}', settings?.demoUrl || 'https://demo.statsweep.com')
+  return (text || '').replaceAll('{{me}}', TEAM[me]?.name || 'Azaiah').replaceAll('{{myphone}}', m.phone || '[your number]').replaceAll('{{demo}}', settings?.demoUrl || 'https://statsweep-demo.netlify.app')
 }
 function relayHref(kind, { phone, body, to, subject }, settings) {
   const useRelay = settings?.useRelay === true
@@ -978,9 +978,9 @@ function Settings({ me }) {
         ))}
         <div className="panel">
           <div className="panel-h"><h2>Links</h2></div>
-          <label className="field"><span>Demo portal link (goes in texts and emails)</span><input className="input" value={s.demoUrl || ''} onChange={(e) => setS({ ...s, demoUrl: e.target.value })} placeholder="https://demo.statsweep.com" /></label>
+          <label className="field"><span>Demo portal link (goes in texts and emails)</span><input className="input" value={s.demoUrl || ''} onChange={(e) => setS({ ...s, demoUrl: e.target.value })} placeholder="https://statsweep-demo.netlify.app" /></label>
           <label className="field"><span>Monthly revenue goal</span><input className="input" type="number" value={s.goal || 20000} onChange={(e) => setS({ ...s, goal: Number(e.target.value) })} /></label>
-          <label className="toggle"><input type="checkbox" checked={s.useRelay === true} onChange={(e) => setS({ ...s, useRelay: e.target.checked })} /> Route call, text and email buttons through statsweep.com/go (only if a phone won't open them directly)</label>
+          <label className="toggle"><input type="checkbox" checked={s.useRelay === true} onChange={(e) => setS({ ...s, useRelay: e.target.checked })} /> Route call, text and email buttons through the StatSweep site's /go page (only if a phone won't open them directly)</label>
           <div className="row gap-s"><button className="btn btn-primary" disabled={!canWrite || sst === 'saving'} onClick={save}>{saveLabel(sst, 'Save settings', 'Saved ✓')}</button></div><FormMsg st={sst} />
         </div>
       </section>

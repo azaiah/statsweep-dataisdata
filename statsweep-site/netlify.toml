@@ -4,7 +4,7 @@
 
 [[redirects]]
   from = "/demo"
-  to = "https://demo.statsweep.com"
+  to = "https://statsweep-demo.netlify.app"
   status = 302
 
 [[redirects]]

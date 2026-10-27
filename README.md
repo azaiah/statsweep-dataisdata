@@ -5,6 +5,15 @@ The CSL system, packaged and sold the way Gundy Consultations sells it to contra
 
 Name check (2026-10-27): `statsweep.com` returned "not registered" from the Verisign registry, and no business uses the name. **Buy the domain first.**
 
+## Live now (until statsweep.com is connected)
+- Marketing site: https://statsweep.netlify.app
+- Demo portal: https://statsweep-demo.netlify.app
+- Team portal: https://statsweep-team.netlify.app
+
+All three deploy from this one repo (`azaiah/statsweep-dataisdata`). The marketing site uses the root `netlify.toml` (base `statsweep-site`). The demo and team projects set their base directory in Netlify (`statsweep-demo`, `statsweep-command-center`) and read the `netlify.toml` inside that folder.
+
+**When the domain is live:** in Netlify add `statsweep.com` to the statsweep project, `demo.statsweep.com` to statsweep-demo and `team.statsweep.com` to statsweep-team. Then search the repo for `statsweep.netlify.app` and `statsweep-demo.netlify.app` and swap in the real domains (site config, `index.html`, sitemap, robots, both `netlify.toml` redirects, the demo's "Back" link, and the team portal's demo link in Settings). The netlify.app addresses keep working either way.
+
 ## What's in this folder
 
 | Folder | What it is | Where it goes |
