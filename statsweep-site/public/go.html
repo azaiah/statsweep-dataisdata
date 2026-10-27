@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Opening…</title>
+<style>body{font:16px system-ui;background:#0B1F33;color:#fff;display:grid;place-items:center;min-height:100vh;margin:0}a{color:#39D5CF}</style></head><body><p id="m">Opening your phone app…</p>
+<script>
+// Relay for the StatSweep Command Center: turns #a=tel&n=... into a tel:, sms: or mailto: link for phones that block them inside web apps.
+var p=new URLSearchParams(location.hash.slice(1)),a=p.get('a'),u='';
+if(a==='tel')u='tel:'+p.get('n');
+if(a==='sms'){var ios=/iPhone|iPad|Mac/.test(navigator.userAgent);u='sms:'+p.get('n')+(p.get('b')?(ios?'&':'?')+'body='+encodeURIComponent(p.get('b')):'')}
+if(a==='mail')u='mailto:'+p.get('to')+'?subject='+encodeURIComponent(p.get('s')||'')+'&body='+encodeURIComponent(p.get('b')||'');
+if(u){location.href=u;document.getElementById('m').innerHTML='If nothing opened, <a href="'+u.replace(/"/g,'&quot;')+'">tap here</a>.'}else document.getElementById('m').textContent='Nothing to open.';
+</script></body></html>

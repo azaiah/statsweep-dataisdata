@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: light; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  body { @apply bg-sterile text-ink font-sans antialiased; font-feature-settings: 'tnum' 0; }
+  h1, h2, h3, h4 { @apply font-display text-night; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  ::selection { background: #39D5CF; color: #0B1F33; }
+  :focus-visible { outline: 3px solid #39D5CF; outline-offset: 2px; border-radius: 6px; }
+  /* scrollbars in brand */
+  * { scrollbar-color: #0B7C7E #E3F4F4; scrollbar-width: thin; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #E3F4F4; }
+  ::-webkit-scrollbar-thumb { background: #0B7C7E; border-radius: 10px; border: 2px solid #E3F4F4; }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-6xl px-4 sm:px-6; }
+  .display { font-variation-settings: 'wdth' 125; font-weight: 800; letter-spacing: -0.02em; line-height: 0.98; }
+  .wide { font-variation-settings: 'wdth' 112; }
+  .num { font-variant-numeric: tabular-nums; }
+  .btn { @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl px-5 font-semibold transition-colors; }
+  .btn-stat { @apply btn bg-stat text-white hover:bg-stat-dark; }
+  .btn-ghost-dark { @apply btn border border-white/25 text-white hover:bg-white/10; }
+  .btn-ghost { @apply btn border border-night/20 text-night hover:bg-night/5; }
+  .h2 { @apply display text-[2.1rem] sm:text-5xl; }
+  .lede { @apply mt-4 max-w-prose text-lg leading-relaxed text-steel; }
+  .card { @apply rounded-2xl border border-line bg-paper; }
+  .input { @apply min-h-[48px] w-full rounded-xl border border-line bg-paper px-3.5 text-base text-ink placeholder:text-steel/70 focus:border-cryo focus:outline-none focus:ring-2 focus:ring-cryo-bright/50; }
+  .label { @apply mb-1.5 block text-sm font-semibold text-night; }
+}
+
+/* The run sheet: a chain-of-custody manifest printed on carbon-copy yellow. */
+.sheet { background: #F6E7A8; color: #10202F; box-shadow: 0 1px 0 #E9D27A, 0 30px 60px -20px rgba(0,0,0,.55); }
+.sheet-rule { background-image: repeating-linear-gradient(to bottom, transparent 0 39px, rgba(16,32,47,.14) 39px 40px); }
+.perf { background-image: radial-gradient(circle at 6px 6px, #0B1F33 3.2px, transparent 3.6px); background-size: 12px 12px; background-repeat: repeat-x; height: 12px; }
+
+/* Transit-map route line for the source list */
+.route-line { position: absolute; left: 19px; top: 8px; bottom: 8px; width: 4px; border-radius: 4px; background: #0B7C7E; }
+@media (min-width: 1024px) { .route-line { left: 0; right: 0; top: 19px; bottom: auto; width: auto; height: 4px; } }
+
+.grain { background-image: radial-gradient(rgba(57,213,207,.10) 1px, transparent 1px); background-size: 22px 22px; }

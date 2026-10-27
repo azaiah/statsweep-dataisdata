@@ -1,0 +1,9 @@
+# Dependencies and build output (each app also has its own .gitignore)
+**/node_modules/
+**/dist/
+**/.netlify/
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
