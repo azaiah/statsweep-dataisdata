@@ -1,0 +1,25 @@
+# Monorepo: this Netlify site deploys the marketing app only.
+# Demo → separate Netlify site with base directory `statsweep-demo`.
+# Command Center → separate site with base `statsweep-command-center` + env vars.
+
+[build]
+  base = "statsweep-site"
+  command = "npm ci && npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/demo"
+  to = "https://demo.statsweep.com"
+  status = 302
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
